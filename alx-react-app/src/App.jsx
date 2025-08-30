@@ -2,7 +2,7 @@ import WelcomeMessage from "./components/WelcomeMessage";
 
 function App(){
     return( <div>
-        <WelcomeMessage/> 
+        <WelcomeMessage /> 
     </div>);
 }
 export default App;
