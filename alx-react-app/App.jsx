@@ -1,6 +1,7 @@
-import WelcomeMessage from './components/WelcomeMessage'
-function app(){
+import WelcomeMessage from './components/WelcomeMessage';
+function App(){
     return( <div>
-        <WelcomeMessage></WelcomeMessage>
+        <WelcomeMessage/>
     </div>);
-};
+}
+export default App;
