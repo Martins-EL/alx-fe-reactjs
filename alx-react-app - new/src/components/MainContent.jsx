@@ -1,7 +1,7 @@
 import React from "react";
 function MainContent() {
     return(
-  <main style={{color:'green' ,fontWeight:'Bolder', fontSize:'32px'}}>
+  <main>
   <p>I love to visit New York, Paris, and Tokyo.</p>
 </main>
     );
