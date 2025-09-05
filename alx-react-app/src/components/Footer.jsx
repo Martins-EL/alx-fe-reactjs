@@ -1,7 +1,7 @@
 import React from 'react';
 function Footer () {
     return (
-<footer style={{color:'green', fontWeight:'Bold'}}>
+<footer>
   <p>© 2023 City Lovers</p>
 </footer>
     );
