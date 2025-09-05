@@ -1,7 +1,7 @@
 import React from "react";
   function Header () {
     return(
-  <header style={{backgroundColor:'red',textAlign:'center'}}>
+  <header style={{backgroundColor:'red'  ,color: 'white',textAlign:'center'}}>
   <h1>My Favorite Cities</h1>
 </header>
     );
