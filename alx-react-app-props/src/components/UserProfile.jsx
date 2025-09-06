@@ -8,7 +8,6 @@ const UserProfile = (props) => {
        <p>Age: {props.age}</p>
        <p>Bio: {props.bio}</p>
      </div>
-   );
+   );                   
  };
-
  export default UserProfile;
