@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import EditRecipeForm from "./EditRecipeForm";
 import DeleteRecipeButton from "./DeleteRecipeButton";
 import { useParams } from "react-router-dom";
+import FavoriteButton from "./FavoriteButton";
 
 const RecipeDetails = () => {
   const { recipeId } = useParams();
@@ -34,6 +35,7 @@ const RecipeDetails = () => {
           <p>{recipe.instructions}</p>
           <button onClick={() => setIsEditing(true)}>Edit</button>
           <DeleteRecipeButton recipeId={recipe.id} />
+          <FavoriteButton recipeId={recipe.id} />
         </>
       )}
     </div>
