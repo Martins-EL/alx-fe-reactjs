@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
-import SearchBar from "./components/searchBar";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
