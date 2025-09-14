@@ -10,8 +10,8 @@ const EditRecipeForm = ({ recipe, onSave }) => {
   const [instructions, setInstructions] = useState(recipe.instructions || "");
   const updateRecipe = useRecipeStore((state) => state.updateRecipe);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const updatedRecipe = {
       ...recipe,
       title,
@@ -20,7 +20,7 @@ const EditRecipeForm = ({ recipe, onSave }) => {
       instructions,
     };
     updateRecipe(updatedRecipe);
-    onSave(); // To close the form after saving
+    onSave();
   };
 
   return (
