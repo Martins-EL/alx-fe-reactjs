@@ -2,11 +2,9 @@ import { useRecipeStore } from "./recipeStore";
 import { Link } from "react-router-dom";
 
 const RecipeList = () => {
-  const { recipes, filteredRecipes, searchTerm } = useRecipeStore((state) => ({
-    recipes: state.recipes,
-    filteredRecipes: state.filteredRecipes,
-    searchTerm: state.searchTerm,
-  }));
+  const recipes = useRecipeStore((state) => state.recipes);
+  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
+  const searchTerm = useRecipeStore((state) => state.searchTerm);
 
   const recipesToDisplay = searchTerm ? filteredRecipes : recipes;
 
