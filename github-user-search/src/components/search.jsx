@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 function Search() {
   const [username, setUsername] = useState("");
@@ -23,10 +22,14 @@ function Search() {
           if (username.trim()) {
             setLoading(true);
             try {
-              const res = await axios.get(
+              const res = await fetch(
                 `https://api.github.com/users/${username.trim()}`
               );
-              setUser(res.data);
+              if (!res.ok) {
+                throw new Error("User not found");
+              }
+              const data = await res.json();
+              setUser(data);
             } catch {
               setError("User not found");
             } finally {
