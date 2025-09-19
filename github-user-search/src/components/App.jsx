@@ -1,5 +1,5 @@
-import Search from "./components/search";
-import Api from "./services/Apikey";
+import Search from "./search";
+import Api from "../services/Apikey";
 function App() {
   return (
     <div>
