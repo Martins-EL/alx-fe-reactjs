@@ -1,22 +1,9 @@
-import axios from "axios";
-
-export async function fetchUserData(searchTerm) {
-  const response = await fetch(
-    `https://api.github.com/users/${encodeURIComponent(searchTerm)}`
-  );
-  if (!response.ok) {
-    throw new Error(`User not found: ${searchTerm}`);
-  }
-  const data = await response.json();
-  return data;
-}
-export async function getUserData(searchTerm) {
+export const fetchUserData = async (username, location = '', minRepos = '') => {
   try {
-    const response = await axios.get(
-      `https://api.github.com/users/${encodeURIComponent(searchTerm)}`
-    );
-    return response.data;
-  } catch {
-    throw new Error(`User not found: ${searchTerm}`);
+    const query = ${username}+location:${location}+repos:>=${minRepos};
+    const response = await axios.get(https://api.github.com/search/users?q=${query});
+    return response.data.items;
+  } catch (err) {
+    throw new Error(err);
   }
-}
+};
