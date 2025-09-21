@@ -35,7 +35,7 @@ function Search() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Enter GitHub username"
+          placeholder="Enter GitHub username "
           value={username}
           onChange={handleChange}
         />
