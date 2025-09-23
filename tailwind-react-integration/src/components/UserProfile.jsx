@@ -1,7 +1,7 @@
 import React from "react";
 function UserProfile() {
   return (
-    <div className="user-profile bg-gray-100 p-8 max-w-sm np mx-auto, my-20 rounded-lg shadow-lg">
+    <div className="user-profile bg-gray-100 p-8 max-w-sm np mx-auto, my-20 rounded-lg shadow-lg md:p-8 sm:p-4">
       <img
         src="https://via.placeholder.com/150"
         alt="User"
