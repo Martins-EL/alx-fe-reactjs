@@ -12,7 +12,7 @@ function HomePage() {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">
+      <h1 className="text-3xl font-bold mb-6 text-center grid-cols-1">
         🍽️ Recipe Collection
       </h1>
 
