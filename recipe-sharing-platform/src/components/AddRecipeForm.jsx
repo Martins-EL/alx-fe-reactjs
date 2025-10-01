@@ -6,36 +6,50 @@ function AddRecipeForm() {
   const [steps, setSteps] = useState("");
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // ✅ Validation function
+  const validate = () => {
     const newErrors = {};
 
-    // Validation
-    if (!title.trim()) newErrors.title = "Recipe title is required.";
+    if (!title.trim()) {
+      newErrors.title = "Recipe title is required.";
+    }
+
     if (!ingredients.trim()) {
       newErrors.ingredients = "Ingredients are required.";
     } else {
-      const ingredientList = ingredients.split(",").map((item) => item.trim());
+      const ingredientList = ingredients
+        .split(",")
+        .map((item) => item.trim())
+        .filter((item) => item !== "");
       if (ingredientList.length < 2) {
         newErrors.ingredients = "Please provide at least 2 ingredients.";
       }
     }
-    if (!steps.trim()) newErrors.steps = "Preparation steps are required.";
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
+    if (!steps.trim()) {
+      newErrors.steps = "Preparation steps are required.";
     }
 
-    // Form is valid
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // ✅ valid if no errors
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validate()) return; // stop if invalid
+
+    // Form is valid → create recipe object
     const recipeData = {
       id: Date.now(),
       title,
-      ingredients: ingredients.split(",").map((item) => item.trim()),
+      ingredients: ingredients
+        .split(",")
+        .map((item) => item.trim())
+        .filter((item) => item !== ""),
       steps,
     };
 
-    console.log("New Recipe Submitted:", recipeData);
+    console.log("✅ New Recipe Submitted:", recipeData);
 
     // Reset form
     setTitle("");
@@ -57,7 +71,10 @@ function AddRecipeForm() {
           <input
             type="text"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => {
+              setTitle(e.target.value);
+              if (errors.title) validate(); // live validate
+            }}
             className={`w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 ${
               errors.title ? "border-red-500" : "border-gray-300"
             }`}
@@ -73,7 +90,10 @@ function AddRecipeForm() {
           <label className="block font-medium mb-1">Ingredients</label>
           <textarea
             value={ingredients}
-            onChange={(e) => setIngredients(e.target.value)}
+            onChange={(e) => {
+              setIngredients(e.target.value);
+              if (errors.ingredients) validate(); // live validate
+            }}
             className={`w-full border rounded-lg p-2 h-24 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 ${
               errors.ingredients ? "border-red-500" : "border-gray-300"
             }`}
@@ -89,7 +109,10 @@ function AddRecipeForm() {
           <label className="block font-medium mb-1">Preparation Steps</label>
           <textarea
             value={steps}
-            onChange={(e) => setSteps(e.target.value)}
+            onChange={(e) => {
+              setSteps(e.target.value);
+              if (errors.steps) validate(); // live validate
+            }}
             className={`w-full border rounded-lg p-2 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 ${
               errors.steps ? "border-red-500" : "border-gray-300"
             }`}
@@ -103,7 +126,8 @@ function AddRecipeForm() {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
+          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+          disabled={!title || !ingredients || !steps} // ✅ prevent empty submit
         >
           Submit Recipe
         </button>
