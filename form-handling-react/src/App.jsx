@@ -1,4 +1,4 @@
-import FormikForm from "./components/FormikForm";
+import FormikForm from "./components/formikForm";
 import RegistrationForm from "./components/RegistrationForm";
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
     <div className="bg-gray-100 min-h-screen flex items-center justify-center">
       <RegistrationForm />
 
-      <FormikForm />
+      <formikForm />
     </div>
   );
 }
