@@ -1,5 +1,5 @@
 import React from "react";
-import RegistrationForm from "./components/RegistrationForm";
+import RegistrationForm from "../components/RegistrationForm";
 import FormikForm from "../components/FormikForm";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
