@@ -8,7 +8,7 @@ import Contact from "./pages/Contact";
 import BlogPost from "./pages/BlogPost";
 import Profile from "./components/Profile";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 function App() {
   return (
@@ -18,10 +18,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
-
         {/* Dynamic blog route */}
         <Route path="/blog/:id" element={<BlogPost />} />
-
         {/* Protected profile route with nested routes */}
         <Route
           path="/profile/*"
