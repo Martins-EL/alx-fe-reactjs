@@ -6,7 +6,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import BlogPost from "./pages/BlogPost";
-import Profile from "./components/profile";
+import Profile from "./components/Profile";
 
 import ProtectedRoute from "../components/ProtectedRoute";
 
